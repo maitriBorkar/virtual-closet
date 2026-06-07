@@ -1,0 +1,67 @@
+{% load static %}
+<link rel="stylesheet" href="{% static 'style.css' %}">
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Your Closet</title>
+</head>
+<body class="bg">
+
+    <h1 style="text-align:center; margin-top: 20px; color: white;">Your Closet</h1>
+
+    <div class="closet-category">
+        <h3 style="color: white;">Tops/Kurtis/Blouses</h3>
+        <div class="closet-container">
+            {% for item in items.tops %}
+                <div class="closet-item">
+                    {% if item.image %}
+                        <img src="{{ item.image.url }}" alt="Top">
+                    {% else %}
+                        <p>No image</p>
+                    {% endif %}
+                </div>
+            {% empty %}
+                <p>No tops added yet.</p>
+            {% endfor %}
+        </div>
+    </div>
+
+    <div class="closet-category">
+        <h3 style="color: white;">Bottoms</h3>
+        <div class="closet-container">
+            {% for item in items.pants %}
+                <div class="closet-item">
+                    {% if item.image %}
+                        <img src="{{ item.image.url }}" alt="Pant">
+                    {% else %}
+                        <p>No image</p>
+                    {% endif %}
+                </div>
+            {% empty %}
+                <p>No bottoms added yet.</p>
+            {% endfor %}
+        </div>
+    </div>
+
+    <div class="closet-category">
+        <h3 style="color: white;">Shoes</h3>
+        <div class="closet-container">
+            {% for item in items.shoes %}
+                <div class="closet-item">
+                    {% if item.image %}
+                        <img src="{{ item.image.url }}" alt="Shoe">
+                    {% else %}
+                        <p>No image</p>
+                    {% endif %}
+                </div>
+            {% empty %}
+                <p>No shoes added yet.</p>
+            {% endfor %}
+        </div>
+    </div>
+
+    <div style="text-align:center; margin-top: 20px;">
+        <a href="{% url 'home' %}">← Back to Home</a>
+    </div>
+</body>
+</html>

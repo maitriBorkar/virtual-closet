@@ -1,0 +1,32 @@
+{% load static %}                                       
+<link rel="stylesheet" href="{% static 'style.css' %}">
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Upload Clothes</title>
+</head>
+<body class="bg">
+    <div class="form-container">
+        <h2>Upload Your Clothes</h2>
+        <form method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit">Upload</button>
+        </form>
+
+        <a href="{% url 'home' %}">← Back to Home</a>
+    </div>
+    <h3 style="text-align: center; color: white;">Instructions for accessing better functioning of Liebes Closet:</h3>
+    <p style="text-align: center; color: white;">1. Upload clothes of 500 x 500 pixels- just works better</p>
+    
+    <p style="text-align: center; color: white;">
+        2. Remove background <a href="https://www.remove.bg/upload" target="_blank" style="color: white; text-decoration: underline;">
+            click here to remove the background:)
+        </a>
+    </p>
+    <p style="text-align: center; color: white;">3. Lay your clothes plain on a light background or wear and click photos</p>
+    <p style="text-align: center; color: white;">4. You can always visit the website from where u buy clothes and get plain and clear pics of your item</p>
+    <p style="text-align: center; color: white;">A little efforts now- more benefits for the future ;)</p>
+</body>
+</html>

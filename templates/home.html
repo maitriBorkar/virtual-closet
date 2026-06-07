@@ -1,0 +1,86 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Shoe Closet - Home</title>
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+</head>
+<body class="bg">
+
+    <!-- 12aug -->
+    <div id="weather-widget" style="position:absolute; top:20px; left:20px; background:rgba(255, 255, 255, 0.8); padding:10px; border-radius:12px; text-align:center; font-family:Arial;">
+        <h3 style="margin:0; font-size:16px;">Weather</h3>
+        <p id="weather-location" style="margin:5px 0; font-size:14px;">Loading...</p>
+        <p id="weather-temp" style="margin:5px 0; font-size:20px; font-weight:bold;"></p>
+        <p id="weather-desc" style="margin:5px 0; font-size:14px;"></p>
+    </div>
+
+    <!-- Welcome msg -->
+    <h1>.</h1>
+    <h1 style="text-align: center; color: white;">Welcome to Liebes Closet!</h1>
+    <p style="text-align: center; color: white;">Ready to step into fascination?</p>
+
+    <!-- Prof-icon -->
+    <img src="{% static 'profile-icon.png' %}" class="profile-icon" onclick="toggleDropdown()">
+    <div id="dropdown" class="dropdown-content">
+        <a href="{% url 'logout' %}">Logout</a>
+    </div>
+
+    <!-- Main Buttons -->
+    <div class="main-buttons">
+        <a href="{% url 'upload' %}" class="big-button">Upload Your Clothes</a>
+        <a href="{% url 'closet' %}" class="big-button">Open Your Closet</a>
+        <a href="{% url 'layer_clothes' %}" class="big-button">Layer Your Clothes</a>      
+
+    </div>
+
+    <script>
+        function toggleDropdown() {
+            var dropdown = document.getElementById("dropdown");
+            dropdown.style.display = dropdown.style.display === "block" ? "none" : "block";
+        }
+
+        document.addEventListener('click', function(event) {
+            var dropdown = document.getElementById("dropdown");
+            var profileIcon = document.querySelector('.profile-icon');
+            if (!dropdown.contains(event.target) && !profileIcon.contains(event.target)) {
+                dropdown.style.display = "none";
+            }
+        });
+
+        // 12aug 
+        const apiKey = "5b41ba622b658cd5dd4214e81d128225";
+
+        function getWeather(lat, lon) {
+            const url = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&units=metric&appid=${apiKey}`;
+
+            fetch(url)
+                .then(response => response.json())
+                .then(data => {
+                    document.getElementById("weather-location").textContent = data.name;
+                    document.getElementById("weather-temp").textContent = `${Math.round(data.main.temp)}°C`;
+                    document.getElementById("weather-desc").textContent = data.weather[0].description;
+                })
+                .catch(error => {
+                    document.getElementById("weather-location").textContent = "Error fetching weather";
+                });
+        }
+
+        function getLocation() {
+            if (navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition(position => {
+                    getWeather(position.coords.latitude, position.coords.longitude);
+                }, () => {
+                    document.getElementById("weather-location").textContent = "Location blocked";
+                });
+            } else {
+                document.getElementById("weather-location").textContent = "Geolocation not supported";
+            }
+        }
+
+        getLocation();
+
+    </script>
+</body>
+</html>

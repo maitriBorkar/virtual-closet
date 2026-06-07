@@ -1,0 +1,199 @@
+/* bg using floral */
+.bg {
+    background-image: url("/static/floral-bg.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    min-height: 100vh;
+}
+
+/* Prof-icon top-right corner */
+.profile-icon {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    cursor: pointer;
+    border: 2px solid rgb(15, 15, 15);
+}
+
+/* Dropdown logout */
+.dropdown-content {
+    display: none;
+    position: absolute;
+    top: 70px;
+    right: 20px;
+    background-color: #e9b1b1;
+    border: 1px solid #ccc;
+    padding: 8px 12px;
+    border-radius: 6px;
+    z-index: 1;
+}
+
+.dropdown-content a {
+    color: #333;
+    text-decoration: none;
+}
+
+/* Big center buttons */
+.main-buttons {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+}
+
+.big-button {
+    display: block;
+    margin: 20px auto;
+    padding: 20px 40px;
+    background-color: #4d2c2c;
+    color: white;
+    font-size: 1.2em;
+    text-decoration: none;
+    border-radius: 10px;
+    width: 250px;
+    transition: background-color 0.3s;
+}
+
+.big-button:hover {
+    background-color: #6b3e3e;
+}
+
+/* Form container */
+.form-container {
+    max-width: 400px;
+    margin: 100px auto;
+    background-color: rgba(255, 255, 255, 0.9);
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 8px #888;
+}
+
+/* Closet view boxes */
+.shoe-box {
+    display: inline-block;
+    width: 180px;
+    margin: 10px;
+    background: white;
+    padding: 10px;
+    border-radius: 10px;
+    text-align: center;
+    box-shadow: 0px 0px 5px #ccc;
+}
+
+.shoe-image {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+}
+
+/* Closet container */
+.closet-container {
+    margin: 100px auto;
+    padding: 20px;
+    max-width: 1000px;
+    text-align: center;
+}
+
+/* new */
+/* Welcome message with cursive font and shoe icon */
+.welcome-message {
+    text-align: center;
+    padding-top: 80px;
+    color: #4d2c2c;
+    text-shadow: 1px 1px 2px #ffffff;
+    font-family: 'Pacifico', cursive;
+    position: relative;
+}
+
+/* Big buttons styled in coffee brown */
+.main-buttons {
+    text-align: center;
+    margin-top: 50px;
+}
+
+.big-button {
+    display: inline-block;
+    background-color: #4b2e2e;
+    color: white;
+    font-size: 20px;
+    padding: 15px 30px;
+    margin: 20px;
+    border-radius: 10px;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+}
+
+.big-button:hover {
+    background-color: #6b4444;
+}
+
+.layering-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 30px;
+}
+
+.outfit-preview {
+    position: relative;
+    width: 300px;
+    height: 400px;
+}
+
+.layer-img {
+    position: absolute;
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+}
+
+.top-img {
+    z-index: 2;
+}
+
+.bottom-img {
+    z-index: 1;
+}
+
+.nav-buttons {
+    margin-top: 20px;
+    display: flex;
+    gap: 20px;
+}
+
+.nav-buttons button {
+    padding: 10px 20px;
+    background-color: #5a2a2a;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.closet-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+    margin: 10px;
+}
+
+.closet-item img {
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+
+.closet-category h3 {
+    text-align: center;
+    margin-top: 30px;
+    color: #4d2c19; /* coffee-brown accent */
+}
